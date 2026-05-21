@@ -9,6 +9,7 @@ import { CategoryChart } from '@/components/dashboard/CategoryChart';
 import { RecentExpenses } from '@/components/dashboard/RecentExpenses';
 import { ExpenseForm } from '@/components/expenses/ExpenseForm';
 import { ExpenseInput } from '@/lib/types';
+import { exportToCSV } from '@/lib/utils';
 
 export default function DashboardPage() {
   const { expenses, addExpense } = useExpenseContext();
@@ -25,6 +26,7 @@ export default function DashboardPage() {
           title="Dashboard"
           subtitle="Your financial overview at a glance"
           action={{ label: 'Add Expense', onClick: () => setFormOpen(true) }}
+          secondaryAction={{ label: 'Export Data', onClick: () => exportToCSV(expenses) }}
         />
 
         <SummaryCards expenses={expenses} />
