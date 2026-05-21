@@ -1,18 +1,21 @@
 'use client';
 
 import { useState } from 'react';
+import { Cloud, Plus } from 'lucide-react';
 import { useExpenseContext } from '@/context/ExpenseContext';
-import { Header } from '@/components/layout/Header';
 import { SummaryCards } from '@/components/dashboard/SummaryCards';
 import { MonthlyChart } from '@/components/dashboard/MonthlyChart';
 import { CategoryChart } from '@/components/dashboard/CategoryChart';
 import { RecentExpenses } from '@/components/dashboard/RecentExpenses';
 import { ExpenseForm } from '@/components/expenses/ExpenseForm';
+import { ExportHubDrawer } from '@/components/export/ExportHubDrawer';
+import { Button } from '@/components/ui/Button';
 import { ExpenseInput } from '@/lib/types';
 
 export default function DashboardPage() {
   const { expenses, addExpense } = useExpenseContext();
   const [formOpen, setFormOpen] = useState(false);
+  const [hubOpen, setHubOpen] = useState(false);
 
   function handleAdd(data: ExpenseInput) {
     addExpense(data);
@@ -21,11 +24,32 @@ export default function DashboardPage() {
   return (
     <>
       <div className="space-y-6">
-        <Header
-          title="Dashboard"
-          subtitle="Your financial overview at a glance"
-          action={{ label: 'Add Expense', onClick: () => setFormOpen(true) }}
-        />
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-slate-900">Dashboard</h1>
+            <p className="mt-0.5 text-sm text-slate-500">
+              Your financial overview at a glance
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <Button
+              variant="secondary"
+              onClick={() => setHubOpen(true)}
+              className="relative"
+            >
+              <Cloud className="h-4 w-4" />
+              Export &amp; Share
+              <span className="absolute -right-1 -top-1 flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-60" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-violet-500" />
+              </span>
+            </Button>
+            <Button onClick={() => setFormOpen(true)}>
+              <Plus className="h-4 w-4" />
+              Add Expense
+            </Button>
+          </div>
+        </div>
 
         <SummaryCards expenses={expenses} />
 
@@ -58,6 +82,12 @@ export default function DashboardPage() {
         open={formOpen}
         onClose={() => setFormOpen(false)}
         onSubmit={handleAdd}
+      />
+
+      <ExportHubDrawer
+        open={hubOpen}
+        onClose={() => setHubOpen(false)}
+        expenses={expenses}
       />
     </>
   );
