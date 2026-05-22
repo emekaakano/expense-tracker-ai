@@ -44,6 +44,8 @@ The project doubles as a study in **deliberate design tradeoffs**: the export fe
 - Custom filename input with auto-suffixed extension
 - Scrollable preview table of the first matching rows
 
+![Export dialog screenshot](docs/screenshots/export-dialog.png)
+
 ### ⚡ Quality details
 - Responsive across mobile, tablet, and desktop
 - Hydration-safe Recharts integration (avoids SSR/CSR mismatch)
