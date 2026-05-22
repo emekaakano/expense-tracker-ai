@@ -63,15 +63,15 @@ export function CategoryChart({ expenses }: CategoryChartProps) {
 
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-      <div className="h-48 w-full sm:w-48 sm:flex-shrink-0">
+      <div className="h-40 w-full sm:w-40 sm:flex-shrink-0">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
               data={data}
               cx="50%"
               cy="50%"
-              innerRadius={50}
-              outerRadius={80}
+              innerRadius={40}
+              outerRadius={64}
               paddingAngle={2}
               dataKey="value"
             >
@@ -87,20 +87,24 @@ export function CategoryChart({ expenses }: CategoryChartProps) {
         </ResponsiveContainer>
       </div>
 
-      <div className="flex-1 space-y-2">
+      <div className="min-w-0 flex-1 space-y-2.5">
         {data.map((d) => {
           const pct = ((d.value / total) * 100).toFixed(0);
           return (
-            <div key={d.name} className="flex items-center gap-2.5">
-              <span className="text-sm">{CATEGORY_ICONS[d.name as keyof typeof CATEGORY_ICONS]}</span>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-medium text-slate-700">{d.name}</span>
-                  <span className="text-xs font-semibold text-slate-900">
-                    {formatCurrency(d.value)}
-                  </span>
-                </div>
-                <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-slate-100">
+            <div key={d.name} className="space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="flex-shrink-0 text-sm leading-none">
+                  {CATEGORY_ICONS[d.name as keyof typeof CATEGORY_ICONS]}
+                </span>
+                <span className="min-w-0 flex-1 truncate text-xs font-medium text-slate-700">
+                  {d.name}
+                </span>
+                <span className="flex-shrink-0 whitespace-nowrap text-xs font-semibold text-slate-900">
+                  {formatCurrency(d.value)}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 pl-6">
+                <div className="h-1.5 min-w-0 flex-1 overflow-hidden rounded-full bg-slate-100">
                   <div
                     className="h-full rounded-full transition-all duration-500"
                     style={{
@@ -110,8 +114,10 @@ export function CategoryChart({ expenses }: CategoryChartProps) {
                     }}
                   />
                 </div>
+                <span className="flex-shrink-0 text-[10px] tabular-nums text-slate-400">
+                  {pct}%
+                </span>
               </div>
-              <span className="w-8 text-right text-xs text-slate-400">{pct}%</span>
             </div>
           );
         })}
