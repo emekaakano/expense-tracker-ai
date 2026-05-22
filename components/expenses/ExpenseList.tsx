@@ -150,7 +150,7 @@ export function ExpenseList({ expenses, onEdit, onDelete }: ExpenseListProps) {
             <p className="text-sm text-slate-600">
               Are you sure you want to delete{' '}
               <span className="font-semibold text-slate-900">
-                "{deleteTarget?.description}"
+                &ldquo;{deleteTarget?.description}&rdquo;
               </span>
               ?
             </p>

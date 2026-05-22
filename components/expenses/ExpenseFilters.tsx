@@ -4,7 +4,6 @@ import { Search, X, SlidersHorizontal } from 'lucide-react';
 import { FilterState } from '@/lib/types';
 import { CATEGORIES } from '@/lib/constants';
 import { Button } from '@/components/ui/Button';
-import { cn } from '@/lib/utils';
 
 interface ExpenseFiltersProps {
   filters: FilterState;

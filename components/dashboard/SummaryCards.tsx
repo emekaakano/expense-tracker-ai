@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
-import { TrendingUp, TrendingDown, Calendar, Hash } from 'lucide-react';
+import { TrendingUp, TrendingDown, Calendar } from 'lucide-react';
 import { Expense } from '@/lib/types';
 import { formatCurrency, getMonthBounds, getCategoryTotals } from '@/lib/utils';
 import { CATEGORY_ICONS } from '@/lib/constants';
