@@ -2,7 +2,7 @@
 
 A modern personal-finance dashboard for tracking expenses with month-over-month trends, category breakdowns, and configurable CSV / JSON / PDF exports — built entirely client-side. 
 
-PS: I must add that this originated as a practice exercise from my learnings on the Course - Generative AI Software Engineering Specialization by Vanderbilt University on Coursera, even as I embark on my journey of building more interesting and useful solutions/product on journey of becoming a Digital Transformation and AI literacy Expert.
+> *Originally built as a hands-on exercise during Vanderbilt University's [Generative AI Software Engineering Specialization](https://www.coursera.org/specializations/generative-ai-software-engineering) on Coursera. It marks an early milestone in my broader journey toward becoming a Digital Transformation and AI Literacy Expert — with more substantive products and case studies to follow.*
 
 **Live demo:** **[expense-tracker-ai-murex.vercel.app](https://expense-tracker-ai-murex.vercel.app)**
 
