@@ -66,6 +66,8 @@ Rather than implementing the export feature once, three competing approaches wer
 
 The v2 ("advanced") implementation was chosen for the best balance of power, polish, and complexity. The unused versions remain visible as [closed pull requests](../../pulls?q=is%3Apr+is%3Aclosed) for context.
 
+For a full technical comparison of the three implementations — architecture, complexity, security, performance, and recommendation matrix — see [**code-analysis.md**](./code-analysis.md).
+
 ---
 
 ## Tech stack
