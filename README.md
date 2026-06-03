@@ -51,6 +51,8 @@ The project doubles as a study in **deliberate design tradeoffs**: the export fe
 - Top 3 categories for the month with Lucide icons, amounts, and transaction counts
 - Budget Streak callout (currently a placeholder — a settable monthly cap is tracked in [issue #4](https://github.com/emekaakano/expense-tracker-ai/issues/4))
 
+![Monthly Insights screenshot](docs/screenshots/insights.png)
+
 ### ⚡ Quality details
 - Responsive across mobile, tablet, and desktop
 - Hydration-safe Recharts integration (avoids SSR/CSR mismatch)
@@ -81,7 +83,11 @@ The Monthly Insights screen started as a literal napkin sketch — donut chart, 
 
 ![Original napkin sketch for the Monthly Insights screen](docs/sketches/monthly-insights-napkin.png)
 
-The shipped version lives at [`/insights`](https://expense-tracker-ai-murex.vercel.app/insights) on the live demo. A few notable translations from sketch to code:
+And the shipped version, live at [`/insights`](https://expense-tracker-ai-murex.vercel.app/insights):
+
+![Monthly Insights shipped screen](docs/screenshots/insights.png)
+
+A few notable translations from sketch to code:
 
 - **Donut with "Spending" label** → Recharts donut with the month's total as a centered overlay, using the existing SSR-safe `mounted` guard pattern.
 - **Top 3 categories** → first three results from `getCategoryTotals`, rendered with Lucide icons in tinted squares and a colored left-border bar to match the rest of the app.
