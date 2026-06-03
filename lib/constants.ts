@@ -46,3 +46,8 @@ export const CATEGORY_ICONS: Record<Category, string> = {
 };
 
 export const STORAGE_KEY = 'expense-tracker-expenses';
+
+// TODO: replace with a real streak computed from a user-set monthly budget
+// once budgets exist in the data model. Today the app has no budget field,
+// so this value is mocked for the Monthly Insights screen.
+export const BUDGET_STREAK_DAYS = 12;
