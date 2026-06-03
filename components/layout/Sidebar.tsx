@@ -2,12 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Receipt, TrendingUp } from 'lucide-react';
+import { LayoutDashboard, Receipt, Sparkles, TrendingUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/expenses', label: 'Expenses', icon: Receipt },
+  { href: '/insights', label: 'Insights', icon: Sparkles },
 ];
 
 export function Sidebar() {
