@@ -70,6 +70,22 @@ For a full technical comparison of the three implementations — architecture, c
 
 ---
 
+## From napkin to screen
+
+The Monthly Insights screen started as a literal napkin sketch — donut chart, top 3 categories, a streak counter — and was implemented end-to-end from that image:
+
+![Original napkin sketch for the Monthly Insights screen](docs/sketches/monthly-insights-napkin.png)
+
+The shipped version lives at [`/insights`](https://expense-tracker-ai-murex.vercel.app/insights) on the live demo. A few notable translations from sketch to code:
+
+- **Donut with "Spending" label** → Recharts donut with the month's total as a centered overlay, using the existing SSR-safe `mounted` guard pattern.
+- **Top 3 categories** → first three results from `getCategoryTotals`, rendered with Lucide icons in tinted squares and a colored left-border bar to match the rest of the app.
+- **Budget Streak** → dashed-border card that echoes the hand-drawn box on the napkin. The 12-day value is currently mocked via a `BUDGET_STREAK_DAYS` constant because the data model has no budget field yet — a proper settable monthly cap is tracked in [issue #4](https://github.com/emekaakano/expense-tracker-ai/issues/4).
+
+The interesting work here wasn't writing the component — it was surfacing the ambiguities in the sketch (what *is* a "budget streak" without a budget?) and getting explicit decisions on them before any code was written.
+
+---
+
 ## Tech stack
 
 | Layer | Choice |
