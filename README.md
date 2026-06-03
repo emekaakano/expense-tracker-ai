@@ -46,6 +46,11 @@ The project doubles as a study in **deliberate design tradeoffs**: the export fe
 
 ![Export dialog screenshot](docs/screenshots/export-dialog.png)
 
+### ✨ Monthly Insights
+- Spending donut with the month's total at the center
+- Top 3 categories for the month with Lucide icons, amounts, and transaction counts
+- Budget Streak callout (currently a placeholder — a settable monthly cap is tracked in [issue #4](https://github.com/emekaakano/expense-tracker-ai/issues/4))
+
 ### ⚡ Quality details
 - Responsive across mobile, tablet, and desktop
 - Hydration-safe Recharts integration (avoids SSR/CSR mismatch)
